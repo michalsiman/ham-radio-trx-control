@@ -1,10 +1,13 @@
 # Ham radio TRX control
 
-A Home Assistant dashboard card with the basics of a transceiver: **frequency**, band, **mode** and **transmit power**, an S-meter, and whether the radio is on and transmitting. Tap the frequency to tune, tap a mode to switch, drag the slider to set the power.
+A Home Assistant dashboard card with the basics of a transceiver: a **frequency display** and a **tuning knob**, band, **mode** and **transmit power**, an S-meter, and whether the radio is on and transmitting.
+
+- **Tune**: tap the mark under a digit to choose what the knob changes (10 MHz down to 100 Hz), then turn the knob: drag around it, scroll over it, or use the arrow keys. The frequency is sent when the knob stops. ⌨ in the display opens a field to type a frequency.
+- **Mode**: tap a mode button. **Band**: tap a band; it tunes to the last frequency you used on that band, else to a default for the mode (data: the JS8 frequency, CW, or the voice part). **Power**: drag the slider.
 
 Made for the entities of [ham-radio-ha-gateway](https://github.com/michalsiman/ham-radio-ha-gateway), which brings a radio into Home Assistant through Hamlib's rigctld and MQTT. Any entities of the same kind work too.
 
-![The card in six states: JS8 on 20 m, transmitting, SSB, CW, radio off, gateway offline](docs/screenshot.png)
+![The card: JS8 on 20 m, transmitting on 40 m, radio off](docs/screenshot.png)
 
 > **Status: under development**, tested with demo data; testing on an Icom IC-7300 follows.
 
@@ -28,7 +31,9 @@ prefix: ic_7300
 | `prefix` | | start of the entity ids (required unless `entities` names them all) |
 | `name` | the device name | card title |
 | `modes` | `[LSB, USB, CW, AM, FM, PKTUSB]` | mode buttons, in this order; the radio's current mode is added when missing |
+| `bands` | `[80m, 40m, 20m, 15m, 12m, 10m]` | band buttons, in this order (160m to 2m) |
 | `show_s_meter` | `true` | |
+| `show_knob` | `true` | the tuning knob |
 | `entities` | | override single entities, see below |
 
 Entities and their defaults, each can be replaced under `entities:`:
