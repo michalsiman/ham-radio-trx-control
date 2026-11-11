@@ -4,6 +4,8 @@ A Home Assistant dashboard card with the basics of a transceiver: **frequency**,
 
 Made for the entities of [ham-radio-ha-gateway](https://github.com/michalsiman/ham-radio-ha-gateway), which brings a radio into Home Assistant through Hamlib's rigctld and MQTT. Any entities of the same kind work too.
 
+![The card in six states: JS8 on 20 m, transmitting, SSB, CW, radio off, gateway offline](docs/screenshot.png)
+
 > **Status: under development**, tested with demo data; testing on an Icom IC-7300 follows.
 
 ## Install

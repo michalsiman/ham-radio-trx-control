@@ -199,8 +199,11 @@ class HamRadioTrxControl extends Base {
         .power input { flex: 1; accent-color: var(--primary-color); }
         .power b { min-width: 56px; text-align: right; color: var(--primary-text-color); }
         .meter { display: flex; align-items: center; gap: 10px; margin-top: 6px; }
-        .bar { flex: 1; height: 8px; border-radius: 4px; background: var(--divider-color, #444); overflow: hidden; }
-        .bar i { display: block; height: 100%; width: ${smeterPct}%; background: linear-gradient(90deg, var(--success-color, #43a047) 0 47%, var(--warning-color, #ff9800) 47% 75%, var(--error-color, #db4437) 75%); }
+        /* Colours on a fixed scale (green to S9, orange to S9+30, red above); the
+           unlit part is covered from the reading to the end. */
+        .bar { flex: 1; height: 8px; border-radius: 4px; overflow: hidden;
+               background: linear-gradient(90deg, var(--success-color, #43a047) 0 47%, var(--warning-color, #ff9800) 47% 75%, var(--error-color, #db4437) 75%); }
+        .bar i { display: block; height: 100%; margin-left: ${smeterPct}%; background: var(--divider-color, #444); }
         .meter b { min-width: 56px; text-align: right; color: var(--primary-text-color); }
         .pad { padding: 16px; }
       </style>
